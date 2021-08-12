@@ -115,7 +115,7 @@ Primeiramente, criamos uma classe, da seguinte forma:
 > class PesquisarProduto{
 > 
 >
-> Em seguida, definimos os elementos que iremos interagir na página:
+ Em seguida, definimos os elementos que iremos interagir na página:
 >
 >    elements = {
 >        campoPesquisar: () => cy.get("#search_query_top"),
