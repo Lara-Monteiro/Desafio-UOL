@@ -18,7 +18,7 @@ Primeiramente, é necessário possuir uma pasta aonde será criado o projeto. Pa
 
 Dentro dessa pasta, podemos iniciar o git, através do comando **git init**.
 
-Após essa configuração, deve-se rodar o comando **npm init** para que seja criado automaticamente a pasta package.json.
+Após essa configuração, deve-se rodar o comando **npm init** para que seja criado automaticamente o arquivo package.json.
 
 E enfim, instalar o cypress, através do comando: **npm Install cypress —dev**
 
@@ -59,7 +59,7 @@ Para mais detalhes do plugin cypress-cucumber-preprocessor, as informações est
 Após as configurações acima, já podemos começar a escrever o nosso teste.
 
 Dentro da pasta integration, deve-se criar um arquivo .feature; no caso, utilizei automationPractice.feature; 
-E nessa pasta, deve-se escrever os passos, utilizando a sintaxe Gherkin (Given, When, And e Then), que traduz-se como “Dado”, “Quando”, “E” e “Então”. No caso, meu cenário ficou assim:
+E nesse arquivo, deve-se escrever os passos, utilizando a sintaxe Gherkin (Given, When, And e Then), que traduz-se como “Dado”, “Quando”, “E” e “Então”. No caso, meu cenário ficou assim:
 
 > Feature: Simular uma compra
 > 
@@ -181,6 +181,6 @@ Abrir o arquivo index.js dentro da pasta support, e acrescentar:
 
 > import 'cypress-mochawesome-reporter/register';
 
-Por fim, rodar o comando **npx cypress run** no terminal, para .
+Por fim, rodar o comando **npx cypress run** no terminal.
 
 Após rodar o teste, o relatório se encontrará no caminho: cypress/reports
