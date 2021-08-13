@@ -1,0 +1,113 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-08-12T14:24:21.318Z",
+    "end": "2021-08-12T14:24:23.845Z",
+    "duration": 2527,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dfe98bc5-72ce-4f0e-9f23-3c1b0c36caa1",
+      "title": "",
+      "fullFile": "cypress/integration/GOREST/tests/DELETEUser.spec.js",
+      "file": "cypress/integration/GOREST/tests/DELETEUser.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "96dbd565-8307-46c7-8e76-672e650f8962",
+          "title": "Delete User",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deletando um item",
+              "fullTitle": "Delete User Deletando um item",
+              "timedOut": null,
+              "duration": 2453,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\GOREST\\\\tests\\\\DELETEUser.spec.js\\\\Delete User -- Deletando um item (failed).png\"\n}",
+              "code": "GETUser.AllUsers().then(resAllUser => {\n  cy.log(resAllUser.body[365].id);\n});",
+              "err": {
+                "message": "TypeError: Cannot read property 'id' of undefined",
+                "estack": "TypeError: Cannot read property 'id' of undefined\n    at Context.eval (https://gorest.co.in/__cypress/tests?p=cypress\\integration\\GOREST\\tests\\DELETEUser.spec.js:210:35)",
+                "diff": null
+              },
+              "uuid": "8b52c8f2-a875-4e8a-9e7b-44c8ca864007",
+              "parentUUID": "96dbd565-8307-46c7-8e76-672e650f8962",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8b52c8f2-a875-4e8a-9e7b-44c8ca864007"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 2453,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "charts": true,
+        "reportPageTitle": "My Test Suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

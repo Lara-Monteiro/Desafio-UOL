@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "pagination": {
+            "total": 1851,
+            "pages": 93,
+            "page": 1,
+            "limit": 20,
+            "links": {
+                "previous": null,
+                "current": "https://gorest.co.in/public/v1/users?page=1",
+                "next": "https://gorest.co.in/public/v1/users?page=2"
+            }
+        }
+    },
+    "data": [
+        {
+            "id": 2042,
+            "name": "Romeu da Silva",
+            "email": "49f763f9@gmail.com",
+            "gender": "male",
+            "status": "active"
+        },
+        {
+            "id": 2051,
+            "name": "neha",
+            "email": "sexyneha@gmail.com",
+            "gender": "female",
+            "status": "active"
+        },
+        {
+            "id": 61,
+            "name": "gav riel",
+            "email": "gav@riel.com",
+            "gender": "female",
+            "status": "inactive"
+        }   
+    ]
+}

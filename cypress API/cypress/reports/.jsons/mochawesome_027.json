@@ -1,0 +1,113 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-08-12T14:24:29.520Z",
+    "end": "2021-08-12T14:24:30.501Z",
+    "duration": 981,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "114a8cb4-fb54-49ab-8bf2-07c38f2f4a83",
+      "title": "",
+      "fullFile": "cypress/integration/GOREST/tests/POSTUser.spec.js",
+      "file": "cypress/integration/GOREST/tests/POSTUser.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a5b34cb6-849b-42dd-9998-a86e4ed3b836",
+          "title": "POST User",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Adicionando um User novo",
+              "fullTitle": "POST User Adicionando um User novo",
+              "timedOut": null,
+              "duration": 882,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"Failed screenshot\",\n  \"value\": \"screenshots\\\\GOREST\\\\tests\\\\POSTUser.spec.js\\\\POST User -- Adicionando um User novo (failed).png\"\n}",
+              "code": "POSTUser.GetUsers().should(response => {\n  expect(response.status).to.eq(201);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v1/users\n\nThe response we received from your web server was:\n\n  > 422: Unprocessable Entity\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://gorest.co.in/public/v1/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.2.0 Chrome/89.0.4328.0 Electron/12.0.0-beta.14 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer c663ac9c6dd00e3344c3a9538c195a757df6be6a0ca4f80c54ffe179b8d59cdb\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 88\n}\nBody: {\"id\":365,\"name\":\"Dana\",\"email\":\"birel1210@gmail.com\",\"gender\":\"male\",\"status\":\"active\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 422 - Unprocessable Entity\nHeaders: {\n  \"server\": \"nginx\",\n  \"date\": \"Thu, 12 Aug 2021 14:24:47 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"cache-control\": \"no-cache\",\n  \"x-request-id\": \"edd6337a-101a-4f27-bff8-7b3e54d44f42\",\n  \"x-runtime\": \"0.043466\",\n  \"strict-transport-security\": \"max-age=63072000; includeSubDomains\",\n  \"vary\": \"Origin\"\n}\nBody: {\n  \"meta\": null,\n  \"data\": [\n    {\n      \"field\": \"email\",\n      \"message\": \"has already been taken\"\n    }\n  ]\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://gorest.co.in/public/v1/users\n\nThe response we received from your web server was:\n\n  > 422: Unprocessable Entity\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://gorest.co.in/public/v1/users\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/8.2.0 Chrome/89.0.4328.0 Electron/12.0.0-beta.14 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"authorization\": \"Bearer c663ac9c6dd00e3344c3a9538c195a757df6be6a0ca4f80c54ffe179b8d59cdb\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 88\n}\nBody: {\"id\":365,\"name\":\"Dana\",\"email\":\"birel1210@gmail.com\",\"gender\":\"male\",\"status\":\"active\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 422 - Unprocessable Entity\nHeaders: {\n  \"server\": \"nginx\",\n  \"date\": \"Thu, 12 Aug 2021 14:24:47 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"transfer-encoding\": \"chunked\",\n  \"connection\": \"keep-alive\",\n  \"x-frame-options\": \"SAMEORIGIN\",\n  \"x-xss-protection\": \"1; mode=block\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-download-options\": \"noopen\",\n  \"x-permitted-cross-domain-policies\": \"none\",\n  \"referrer-policy\": \"strict-origin-when-cross-origin\",\n  \"cache-control\": \"no-cache\",\n  \"x-request-id\": \"edd6337a-101a-4f27-bff8-7b3e54d44f42\",\n  \"x-runtime\": \"0.043466\",\n  \"strict-transport-security\": \"max-age=63072000; includeSubDomains\",\n  \"vary\": \"Origin\"\n}\nBody: {\n  \"meta\": null,\n  \"data\": [\n    {\n      \"field\": \"email\",\n      \"message\": \"has already been taken\"\n    }\n  ]\n}\n\n\nhttps://on.cypress.io/request\n    at https://gorest.co.in/__cypress/runner/cypress_runner.js:145211:21\n    at tryCatcher (https://gorest.co.in/__cypress/runner/cypress_runner.js:13212:23)\n    at Promise._settlePromiseFromHandler (https://gorest.co.in/__cypress/runner/cypress_runner.js:11147:31)\n    at Promise._settlePromise (https://gorest.co.in/__cypress/runner/cypress_runner.js:11204:18)\n    at Promise._settlePromise0 (https://gorest.co.in/__cypress/runner/cypress_runner.js:11249:10)\n    at Promise._settlePromises (https://gorest.co.in/__cypress/runner/cypress_runner.js:11329:18)\n    at _drainQueueStep (https://gorest.co.in/__cypress/runner/cypress_runner.js:7919:12)\n    at _drainQueue (https://gorest.co.in/__cypress/runner/cypress_runner.js:7912:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://gorest.co.in/__cypress/runner/cypress_runner.js:7928:5)\n    at Async.drainQueues (https://gorest.co.in/__cypress/runner/cypress_runner.js:7798:14)\nFrom Your Spec Code:\n    at Object.GetUsers (https://gorest.co.in/__cypress/tests?p=cypress\\integration\\GOREST\\tests\\POSTUser.spec.js:119:13)\n    at Context.eval (https://gorest.co.in/__cypress/tests?p=cypress\\integration\\GOREST\\tests\\POSTUser.spec.js:149:14)",
+                "diff": null
+              },
+              "uuid": "2479afee-8415-489b-bffe-57046e9d53c9",
+              "parentUUID": "a5b34cb6-849b-42dd-9998-a86e4ed3b836",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2479afee-8415-489b-bffe-57046e9d53c9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 882,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "charts": true,
+        "reportPageTitle": "My Test Suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
