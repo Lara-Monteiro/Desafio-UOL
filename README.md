@@ -1,4 +1,7 @@
-Esse projeto tem como objetivo simular uma compra no e-commerce http://automationpractice.com/index.php, utilizando Cypress e Cucumber.
+Esse projeto tem como objetivo apresentar instruçoes e configurações do cypress; 
+A pasta nomeada de "cypress" é o teste de interface simulando uma compra no e-commerce http://automationpractice.com/index.php, utilizando Cypress e Cucumber.
+A pasta nomeada de "cypress API" é o teste automatizado da API https://gorest.co.io/.
+
 
 Segue fluxograma das funcionalidades do e-commerce:
 
@@ -161,6 +164,7 @@ Gerando reports:
 No terminal, dentro da pasta, rodar o comando: **npm i --save-dev cypress-mochawesome-reporter**
 
 No pasta cypress.json, acrescentar:
+
 > "reporter": "cypress-mochawesome-reporter",
 >  "reporterOptions": {
 >    "reportDir": "cypress/reports",
@@ -184,3 +188,145 @@ Abrir o arquivo index.js dentro da pasta support, e acrescentar:
 Por fim, rodar o comando **npx cypress run** no terminal.
 
 Após rodar o teste, o relatório se encontrará no caminho: cypress/reports
+
+
+# Teste de API
+
+É necessário criar uma pasta dentro da pasta aonde foi instalado o cypress, que será o local do projeto; e abri-la no VS Code, após isso, rodar o comando **npx Cypress open** para abrir o cypress e gerar a estrutura padrão do cypress.
+
+Após isso, já podemos começar a escrever nosso teste de API:
+
+Dentro da pasta integration, deve-se criar uma pasta chamada service.
+
+E nessa pasta, criar mais três pastas: 
+
+Addloads: aonde estarão as informações do usuário e o novo usuário que eu quero adicionar;
+
+Requests: aonde estarão as requisições;
+
+Tests: aonde estará o teste em si.
+
+Após isso, definimos nossa urlBase: para isso, iremos até a pasta cypress.json e definirmos nossa baseUrl que usaremos no projeto.
+
+Dessa forma, acrescentamos na pasta: 
+"baseUrl": "https://gorest.co.in/"
+
+Começamos com a criação do arquivo dentro da pasta requests, de nome “GETUser.request.js”. O arquivo ficará assim:
+
+> function AllUsers() {
+>    return cy.request({
+>        method: 'GET',
+>        url: '/users/',
+>        failOnStatusCode: false
+>    })
+> }
+>
+> export{AllUsers}
+
+Depois, adicionar arquivo "POSTuser.request.js". O arquivo ficará assim:
+
+> const newuser = require('../Addloads/newuser.json')
+> //const access_token = require('../Support/utilis')
+> 
+> function GetUsers() {
+>    return cy.request({
+>        method: 'POST',
+>        url: '/users/',
+>        // Caso queria adicionar mais um usuário, direcionar para a página Addloads > newuser.json
+>        // Lembrando que: o ID e o email devem ser unicos, não podem já existir no banco de dados.
+>        auth: {
+>            bearer: 'c663ac9c6dd00e3344c3a9538c195a757df6be6a0ca4f80c54ffe179b8d59cdb'           
+>        },
+>        // Token da API. Ao testar, criar uma conta na aplicação e substituir pela KEY gerada pela sua conta.
+>        
+>        body: newuser
+>    })
+> }
+> export {GetUsers}
+
+E por fim, adicionar o arquivo "DELETEuser.request.js". O arquivo ficará assim:
+
+> const infousers = require('../Addloads/infousers.json')
+>
+> function DELETEUsers(idUser) {
+>    return cy.request({
+>        method: 'DELETE',
+>        //url: `users/${idUser}`,
+>        url: '/users/2147/',
+>        // ID 2147 foi o último ID que criei com dados que podem ser encontrados na pasta Addloads > newuser.json
+>        // O teste de DELETE realizado com ele foi um sucesso.
+>        auth: {
+>            bearer: 'c663ac9c6dd00e3344c3a9538c195a757df6be6a0ca4f80c54ffe179b8d59cdb'
+>
+>        },
+>        //body: infousers,
+>        failOnStatusCode: false
+>    
+>    })
+> } 
+> export {DELETEUsers}
+
+E após isso, dentro da pastas tests, criamos o arquivo: /GETUsers.spec.js, aonde importaremos o que foi criado no arquivo GETUser.request.js:
+O arquivo ficará assim:
+
+> import * as GETUser from '../requests/GETUser.request'
+>
+> describe('GET User', () => {
+>        it('Requisitando usuários', () =>{
+>            GETUser.AllUsers().should((response) => {
+>                expect(response.body)
+>                expect(response.status).to.eq(200)
+>                expect(response.body).to.be.not.null
+>
+>
+>            })
+>        })
+> })
+
+Depois, dentro da pastas tests, criamos o arquivo: /POSTUsers.spec.js, aonde importaremos o que foi criado no arquivo POSTUser.request.js:
+O arquivo ficará assim:
+
+> import * as POSTUser from '../requests/POSTUser.request'
+> 
+> describe('POST User', () => {
+>    it("Adicionando um User novo", () => {
+>        POSTUser.GetUsers().should((response) => {
+>            expect(response.status).to.eq(201)
+>            //expect(response.body.id).to.eq(202);
+>           
+>        })
+>    })
+> })
+
+Depois, dentro da pastas tests, criamos o arquivo: /DELETEUsers.spec.js, aonde importaremos o que foi criado no arquivo DELETEUser.request.js:
+O arquivo ficará assim:
+
+> import * as DELETEUser from '../requests/DELETEUser.request'
+>
+> describe('Delete User', () => {
+>     it('Deletando um User', () => {
+>        DELETEUser.DELETEUsers().should((resDeleteUser) => {
+>            expect(resDeleteUser.status).to.eq(204)
+>        })
+>    })          
+> })        
+
+E enfim, na pasta addload, criarei 2 arquivos .json. Nessa pasta eu criei um arquivo de newuser, onde adicionei novas infos para fazer o POST request.
+Nesse arquivo, consta dos dados necessários para se interagir com a GOREST. É necessário atualiza-lo em cada interação com post, pois sem isso, dará erro de usuário já cadastrado. 
+
+O arquivo new user encontra-se assim:
+
+> {
+>    "id": 2147,
+>    "name": "Lara monteiro",
+>    "email": "2147@gmail.com",
+>    "gender": "female",
+>    "status": "active"
+> }
+
+Os testes saíram de acordo com o esperado. Quando fiz a requisição de GET, a API me retorna uma mensagem de acerto, informando que obtive uma resposta 200. 
+Já quando fui testar o POST, obtive o mesmo sucesso (201). Consegui adicionar um novo usuário na API importando do arquivo newuser.json. 
+E por último, o DELETE. 
+Ao fazer a requisição de DELETE, utilizei o último usuário criado por mim, me baseando no horario (2147). Ao realizar, a API me retornou uma mensagem de acerto, que de acordo com a API corresponde a 204.
+* Checar documentação da GO REST para mais informações.
+Utilizei a propria documentação da API para me basear nas respostas.
