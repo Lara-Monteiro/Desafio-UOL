@@ -196,7 +196,7 @@ Após rodar o teste, o relatório se encontrará no caminho: cypress/reports
 
 Após isso, já podemos começar a escrever nosso teste de API:
 
-Dentro da pasta integration, deve-se criar uma pasta chamada service.
+Dentro da pasta integration, deve-se criar uma pasta chamada GOREST.
 
 E nessa pasta, criar mais três pastas: 
 
